@@ -1,24 +1,22 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <test></test>
-  </div>
-</template>
-
 <script lang="tsx">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
+import { CreateElement } from "vue";
+import JsxPropTest from "./components/jsxPropTest.vue";
 
 @Component({
+  //@ts-ignore
   components: {
-    HelloWorld,
     test: () =>
       import(/* webpackChunkName: "test" */ "./components/test.vue").then(
         d => d.default
       )
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  render(h: CreateElement) {
+    return <JsxPropTest title="123" />;
+  }
+}
 </script>
 
 <style>

@@ -1,7 +1,7 @@
 const { resolve } = require("path");
 
 module.exports = {
-  parallel: true,
+  parallel: false,
   lintOnSave: "error",
   devServer: {
     overlay: {
